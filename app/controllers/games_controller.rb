@@ -41,13 +41,16 @@ class GamesController < ApplicationController
     word_length = params[:word].length
     if check_dictionary?(params[:word]) == false
       @score = 0
-      @message = 'That is not an English word.'
+      @message = "Sorry, but '#{params[:word].upcase}' is not an English word. Your score is #{@score}."
+    elsif params[:word].length.zero?
+      @score = 0
+      @message = "Please enter a word."
     elsif check_grid? == false
       @score = 0
-      @message = 'That word is not in the grid.'
+      @message = "Sorry, but '#{params[:word].upcase}' cannot be built out of #{params[:grid]}. Your score is #{@score}."
     else
       @score = compute_score(word_length)
-      @message = 'Well Done!'
+      @message = "Congratulations! #{params[:word].upcase} is a valid English word! Your score is #{@score}."
     end
   end
 end
