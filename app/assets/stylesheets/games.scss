@@ -50,6 +50,7 @@ a {
   font-size: 24px;
   background-shadow: 10px #222831;
 }
+
 .input {
   padding: 6px;
 
@@ -57,4 +58,8 @@ a {
 
 .button {
   height: 30px;
+}
+
+.container {
+  display: flex;
 }
